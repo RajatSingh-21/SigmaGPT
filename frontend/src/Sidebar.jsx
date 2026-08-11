@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
 import { v1 as uuidv1 } from "uuid";
-import blackLogo from "../assets/blacklogo.png";
+import blackLogo from "./src/assets/blacklogo.png";
 import { ScaleLoader, CircleLoader } from "react-spinners";
 
 function Sidebar() {
