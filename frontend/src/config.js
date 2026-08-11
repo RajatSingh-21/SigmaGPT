@@ -1,1 +1,1 @@
-export const API_URL = "https://sigmagpt-1-uz0l.onrender.com";
+export const API_URL = "http://13.233.48.159:8080";
