@@ -3,6 +3,7 @@ import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
 import { v1 as uuidv1 } from "uuid";
+import blackLogo from "../assets/blacklogo.png";
 import { ScaleLoader, CircleLoader } from "react-spinners";
 
 function Sidebar() {
@@ -89,7 +90,7 @@ function Sidebar() {
   return (
     <section className="sidebar">
       <button onClick={createNewChat}>
-        <img src="./src/assets/blacklogo.png" alt="" className="logo" />
+        <img src={blackLogo} alt="" className="logo" />
         <span>
           <i className="fa-solid fa-pen-to-square"></i>
         </span>
