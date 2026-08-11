@@ -1,1 +1,1 @@
-export const API_URL = "http://13.233.48.159:8080";
+export const API_URL = "https://13-233-48-159.sslip.io";
