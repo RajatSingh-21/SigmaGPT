@@ -1,0 +1,262 @@
+.chatWindow {
+  /* background-color: black; */
+  /* background: radial-gradient(circle at top, #1a1a1a, #0a0a0a 60%); */
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+/* .chatWindow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+} */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar span {
+  margin: 0.7rem 2rem;
+}
+.userIconDiv {
+  margin: 0.7rem 2rem;
+}
+.userIcon {
+  background-color: #339cff;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.userIcon div:hover {
+  cursor: pointer;
+}
+.chatInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 0.9rem; */
+}
+.inputBox {
+  width: 100%;
+  position: relative;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.25rem;
+}
+input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 14px 16px;
+  font-size: 0.97rem;
+  border-radius: 13px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+#submit {
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+  position: absolute;
+  right: 15px;
+}
+#submit:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+.info {
+  font-size: 0.73rem;
+  padding: 0.1rem;
+  color: #b4b4b4;
+}
+/* DropDown CSS */
+.dropDown {
+  border-radius: 14px;
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  width: 150px;
+  background-color: #323232;
+  padding: 0.3rem 0.5rem;
+  border: 6px;
+  text-align: left;
+  z-index: 1000;
+  box-sizing: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+.dropDownItem {
+  font-size: 0.91rem;
+  margin: 0.3rem 0rem;
+  padding: 0.5rem 0.2rem;
+}
+.dropDownItem:hover {
+  cursor: pointer;
+  background-color: rgba(180, 180, 180, 0.1);
+  border-radius: 6px;
+}
+.dropDownItem:last-child {
+  color: #ff6b6b;
+}
+.dropDownItem:last-child:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+#mic {
+  cursor: pointer;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
+}
+#mic:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+#mic.listening {
+  background-color: rgba(255, 59, 59, 0.15);
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+#submit {
+  position: absolute;
+  right: 15px;
+}
+#mic {
+  position: absolute;
+  right: 60px;
+}
+.dropDown {
+  border-radius: 14px;
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  width: 170px;
+  background: linear-gradient(145deg, #333333, #262626);
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: dropdownIn 0.15s ease;
+}
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.inputBox input {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.inputBox input:focus {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.chatInput {
+  background: linear-gradient(to top, #171717 40%, transparent);
+  padding-top: 1.5rem;
+}
+#submit {
+  right: 18px;
+}
+#mic {
+  right: 62px;
+}
+#submit:active {
+  transform: scale(0.85);
+}
+.history li {
+  animation: threadIn 0.3s ease backwards;
+}
+.history li:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.history li:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.history li:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.history li:nth-child(4) {
+  animation-delay: 0.2s;
+}
+@keyframes threadIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.typingDots {
+  display: flex;
+  gap: 4px;
+  padding: 8px 0;
+}
+.typingDots span {
+  width: 6px;
+  height: 6px;
+  background: #999;
+  border-radius: 50%;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+.typingDots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typingDots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+}

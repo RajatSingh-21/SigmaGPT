@@ -1,0 +1,218 @@
+/* Signup.css */
+
+.authPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centers card horizontally */
+  align-items: center; /* centers card vertically */
+  background-color: #212121;
+}
+
+.authCard {
+  display: flex;
+  flex-direction: column; /* stack children top to bottom */
+  gap: 1rem; /* even spacing between EVERY child — replaces manual margins */
+  background-color: #2a2a2a;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 380px; /* card won't exceed this, but can shrink on small screens */
+  border-radius: 20px;
+  box-sizing: border-box; /* padding included in the 380px, not added on top */
+}
+.authCard {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.authCard {
+  animation: cardIn 0.4s ease;
+}
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.authCard {
+  background: linear-gradient(145deg, #2f2f2f, #262626);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.authCard {
+  background: linear-gradient(145deg, #333333, #202020);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* target inputs ONLY inside .authCard, so ChatWindow.css's global "input" rule loses */
+.authCard input {
+  width: 100%;
+  box-sizing: border-box; /* same reason as above — padding won't overflow the width */
+  padding: 14px 20px;
+  border: none;
+  border-radius: 24px; /* half of ~48px total height = full pill shape */
+  background-color: #3a3a3a; /* slightly lighter than card so it reads as a field */
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.authCard input:focus {
+  background-color: #454545;
+}
+
+.authCard button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: none;
+  border-radius: 24px;
+  background-color: #ececec; /* light button like the reference */
+  color: #1a1a1a;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-left: 0;
+}
+
+.authCard button:hover {
+  background-color: #d4d4d4;
+}
+
+.authCard a {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #b4b4b4;
+  cursor: pointer;
+  margin: 0;
+}
+.authCard form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.authHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.authHeader i {
+  font-size: 1.8rem;
+}
+.authHeader h2 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+.authCard input,
+.authCard button {
+  transition: all 0.2s ease;
+}
+.authCard button:hover {
+  transform: scale(1.02);
+}
+.authCard input:focus {
+  background-color: #454545;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+.authCard button {
+  background: linear-gradient(135deg, #ffffff, #d8d8d8);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+}
+.passwordWrapper {
+  position: relative;
+  width: 100%;
+}
+.passwordWrapper i {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+.authCard form input {
+  animation: fadeInUp 0.4s ease backwards;
+}
+.authCard form input:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.authCard form input:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.authCard form input:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.authCard form input:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* #2 Error shake */
+.errorMsg {
+  animation: shake 0.3s ease;
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+/* #3 Button loading morph */
+.authCard button[type="submit"] {
+  transition: all 0.3s ease;
+}
+/* on your loading state, wrap ScaleLoader in a div matching button size instead — simplest fix: */
+.loaderWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 13px;
+}
+
+/* #4 Card hover glow */
+.authCard {
+  transition: box-shadow 0.3s ease;
+}
+.authCard:hover {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(255, 255, 255, 0.05);
+}
+.authCard form > *:not(.errorMsg) {
+  animation: fadeInUp 0.4s ease backwards;
+}
+.authPage {
+  background: linear-gradient(-45deg, #1a1a1a, #212121, #262626, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
