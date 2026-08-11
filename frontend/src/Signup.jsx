@@ -51,7 +51,7 @@ function Signup() {
       }),
     };
     try {
-      const response = await fetch("http://localhost:8080/api/signup", options); //call to auth route
+      const response = await fetch(`${API_URL}/api/signup`, options); //call to auth route
       const res = await response.json();
       if (!response.ok) {
         setErrorMsg(res.error);
