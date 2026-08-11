@@ -1,3 +1,4 @@
+import { API_URL } from "./config";
 import { useContext } from "react";
 import { MyContext } from "./MyContext";
 import "./Login.css";
@@ -43,7 +44,7 @@ function Login() {
       }),
     };
     try {
-      const response = await fetch("http://localhost:8080/api/login", options);
+      const response = await fetch(`${API_URL}/api/login`, options);
       const res = await response.json();
       console.log("Login response:", res);
       if (!response.ok) {

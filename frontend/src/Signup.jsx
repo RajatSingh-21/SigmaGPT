@@ -1,3 +1,4 @@
+import { API_URL } from "./config";
 import { useContext } from "react";
 import { MyContext } from "./MyContext";
 import "./Signup.css";

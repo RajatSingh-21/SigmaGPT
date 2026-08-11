@@ -1,3 +1,4 @@
+import { API_URL } from "./config";
 import "./Sidebar.css";
 import { useContext, useEffect } from "react";
 import { MyContext } from "./MyContext";
@@ -32,7 +33,7 @@ function Sidebar() {
   //to show all chats threadId and title
   const getAllThreads = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/thread", {
+      const response = await fetch(`${API_URL}/api/thread`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const res = await response.json();
@@ -51,12 +52,9 @@ function Sidebar() {
   const changeThread = async (newThreadId) => {
     setcurrThreadId(newThreadId);
     try {
-      const response = await fetch(
-        `http://localhost:8080/api/thread/${newThreadId}`,
-        {
-          headers: { Authorization: `Bearer ${localStorage.getitem("token")}` },
-        },
-      );
+      const response = await fetch(`${API_URL}/api/thread/${newThreadId}`, {
+        headers: { Authorization: `Bearer ${localStorage.getitem("token")}` },
+      });
       const res = await response.json();
       console.log(res);
       setprevChats(res);
@@ -69,7 +67,7 @@ function Sidebar() {
   const deleteThread = async (threadId) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/thread/${threadId}`,
+        `${API_URL}/api/thread/${threadId}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         },
