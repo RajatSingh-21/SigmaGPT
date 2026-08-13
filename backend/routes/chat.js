@@ -45,6 +45,7 @@ router.get("/thread/:threadId", auth, async (req, res) => {
 //Delete route
 router.delete("/thread/:threadId", auth, async (req, res) => {
   const { threadId } = req.params;
+  console.log("Deleting threadId:", threadId, "for user:", req.user.userId);
   try {
     const deletedThread = await Thread.findOneAndDelete({ threadId, userId: req.user.userId });
 
@@ -79,7 +80,7 @@ router.post("/chat", auth, async (req, res) => {
       thread.messages.push({ role: "user", content: message });
     }
 
-    const assistantReply = await getGrokAIAPIStream(thread.messages.slice(-10));
+    const assistantReply = await getGrokAIAPIStream(message);
 
     thread.messages.push({ role: "assistant", content: assistantReply });
     thread.updatedAt = new Date();

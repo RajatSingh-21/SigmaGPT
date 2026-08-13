@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-const getGrokAIAPIStream = async (messages) => {
+const getGrokAIAPIStream = async (message) => {
   const options = {
     method: "POST",
     headers: {
@@ -9,7 +9,12 @@ const getGrokAIAPIStream = async (messages) => {
     },
     body: JSON.stringify({
       model: "llama-3.1-8b-instant",
-      messages: messages
+      messages: [
+        {
+          role: "user",
+          content: message,
+        },
+      ],
     }),
   };
   try {
