@@ -54,7 +54,7 @@ function Sidebar() {
     setcurrThreadId(newThreadId);
     try {
       const response = await fetch(`${API_URL}/api/thread/${newThreadId}`, {
-        headers: { Authorization: `Bearer ${localStorage.getitem("token")}` },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       const res = await response.json();
       console.log(res);
