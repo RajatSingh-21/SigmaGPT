@@ -79,8 +79,8 @@ router.post("/chat", auth, async (req, res) => {
     } else {
       thread.messages.push({ role: "user", content: message });
     }
-
-    const assistantReply = await getGrokAIAPIStream(message);
+    console.log("History being sent:", JSON.stringify(thread.messages.slice(-10), null, 2));
+    const assistantReply = await getGrokAIAPIStream(thread.messages.slice(-10));
 
     thread.messages.push({ role: "assistant", content: assistantReply });
     thread.updatedAt = new Date();
