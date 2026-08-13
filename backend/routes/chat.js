@@ -79,7 +79,7 @@ router.post("/chat", auth, async (req, res) => {
       thread.messages.push({ role: "user", content: message });
     }
 
-    const assistantReply = await getGrokAIAPIStream(message);
+    const assistantReply = await getGrokAIAPIStream(thread.message.slice(-10));
 
     thread.messages.push({ role: "assistant", content: assistantReply });
     thread.updatedAt = new Date();
