@@ -4,9 +4,11 @@
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center; /* centers card horizontally */
-  align-items: center; /* centers card vertically */
+  justify-content: center;
+  align-items: center;
   background-color: #212121;
+  padding: 1.5rem; /* breathing room on small screens */
+  box-sizing: border-box;
 }
 
 .authCard {
@@ -214,5 +216,14 @@
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@media (max-width: 480px) {
+  .authCard {
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+  }
+  .authHeader h2 {
+    font-size: 1.15rem;
   }
 }

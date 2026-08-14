@@ -21,6 +21,7 @@ function App() {
   const [showLogin, setshowLogin] = useState(true);
   const [isLoggedIn, setisLoggedIn] = useState(!!localStorage.getItem("token"));
   const [triggerReply, settriggerReply] = useState(0);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const providerValues = {
     prompt,
@@ -47,6 +48,8 @@ function App() {
     setisLoggedIn,
     triggerReply,
     settriggerReply,
+    sidebarOpen,
+    setSidebarOpen,
   };
 
   return (

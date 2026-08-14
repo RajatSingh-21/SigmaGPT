@@ -95,3 +95,15 @@ button:hover {
   background-color: rgba(180, 180, 180, 0.15m);
   border-radius: 10px;
 }
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    z-index: 1000;
+    transition: left 0.25s ease;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+}

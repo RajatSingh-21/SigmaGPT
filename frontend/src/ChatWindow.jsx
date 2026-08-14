@@ -18,6 +18,8 @@ function ChatWindow() {
     setisLoggedIn,
     triggerReply,
     setUsername,
+    sidebarOpen,
+    setSidebarOpen,
   } = useContext(MyContext);
 
   const [loading, setloading] = useState(false); //loader
@@ -107,8 +109,19 @@ function ChatWindow() {
   };
   return (
     <div className="chatWindow">
+      {sidebarOpen && (
+        <div
+          className="sidebarBackdrop"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
       <div className="navbar">
+        <i
+          className="fa-solid fa-bars hamburger"
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+        ></i>
         <span>
+          {" "}
           <b>SigmaGPT</b> <i className="fa-solid fa-angle-down"></i>
         </span>
         <div className="userIconDiv" onClick={handleProfileClick}>

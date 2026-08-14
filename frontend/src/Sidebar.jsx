@@ -17,6 +17,8 @@ function Sidebar() {
     setprevChats,
     setcurrThreadId,
     username,
+    sidebarOpen,
+    setSidebarOpen,
   } = useContext(MyContext);
 
   useEffect(() => {
@@ -85,7 +87,7 @@ function Sidebar() {
     }
   };
   return (
-    <section className="sidebar">
+    <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
       <button onClick={createNewChat}>
         <img src={blackLogo} alt="" className="logo" />
         <span>

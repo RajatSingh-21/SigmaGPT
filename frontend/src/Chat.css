@@ -1,14 +1,17 @@
 .chats {
-  padding-right: 1rem; /* breathing room before scrollbar */
+  padding-right: 1rem;
+  padding-left: 1rem; /* add this */
   max-width: 750px;
-  height: 100vh;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* padding-top: 8rem; */
-  margin: 0.9rem;
+  margin: 0.9rem auto; /* changed from 0.9rem to center it too */
+  width: 100%;
+  box-sizing: border-box;
 }
 .chats::-webkit-scrollbar {
   width: 6px;
