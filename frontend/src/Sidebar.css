@@ -1,13 +1,13 @@
 .sidebar {
   background: linear-gradient(180deg, #1a1a1a, #141414);
   color: #b4b4b4;
-  height: 100vh;
+  height: 100dvh; /* changed from 100vh */
   width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
-  overflow-y: auto;
+  box-sizing: border-box;
 }
 button {
   display: flex;
@@ -40,7 +40,20 @@ button:hover {
 .history {
   margin: 10px;
   padding: 8px;
-  height: 100%;
+  flex: 1; /* changed from height: 100% */
+  min-height: 0; /* required for proper flex scrolling */
+  overflow-y: auto; /* added */
+}
+.history::-webkit-scrollbar {
+  width: 5px;
+}
+.history::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+.history {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 .history li {
   list-style-type: none;
@@ -100,6 +113,19 @@ button:hover {
     position: fixed;
     left: -280px;
     top: 0;
+    z-index: 1000;
+    transition: left 0.25s ease;
+  }
+  .sidebar.open {
+    left: 0;
+  }
+}
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    height: 100dvh; /* explicit here too, overrides any conflict */
     z-index: 1000;
     transition: left 0.25s ease;
   }
