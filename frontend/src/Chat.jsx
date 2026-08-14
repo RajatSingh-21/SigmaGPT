@@ -16,6 +16,8 @@ function Chat() {
     getReply,
     triggerReply,
     settriggerReply,
+    loading,
+    setloading,
   } = useContext(MyContext);
 
   const [lastestReply, setLastestReply] = useState(null);
@@ -172,6 +174,13 @@ function Chat() {
               </div>
             )}
           </>
+        )}
+        {loading && (
+          <div className="typingDots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         )}
       </div>
     </>

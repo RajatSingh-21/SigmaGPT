@@ -22,6 +22,7 @@ function App() {
   const [isLoggedIn, setisLoggedIn] = useState(!!localStorage.getItem("token"));
   const [triggerReply, settriggerReply] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [loading, setloading] = useState(false);
 
   const providerValues = {
     prompt,
@@ -50,6 +51,8 @@ function App() {
     settriggerReply,
     sidebarOpen,
     setSidebarOpen,
+    loading,
+    setloading,
   };
 
   return (

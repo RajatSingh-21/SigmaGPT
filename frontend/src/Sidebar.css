@@ -133,3 +133,9 @@ button:hover {
     left: 0;
   }
 }
+.emptyHistory {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  padding: 1rem;
+}

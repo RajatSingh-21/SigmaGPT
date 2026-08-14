@@ -20,10 +20,13 @@ function ChatWindow() {
     setUsername,
     sidebarOpen,
     setSidebarOpen,
+    loading,
+    setloading,
   } = useContext(MyContext);
 
-  const [loading, setloading] = useState(false); //loader
+  // const [loading, setloading] = useState(false); //loader
   const [isOpen, setisOpen] = useState(true);
+  const [chatError, setChatError] = useState("");
   //
   const recognitionRef = useRef(null);
   const [isListening, setisListening] = useState(false);
@@ -58,6 +61,7 @@ function ChatWindow() {
   //
   const getReply = async () => {
     setloading(true);
+    setChatError("");
     console.log("message", prompt, "threadId", currThreadId);
     const options = {
       method: "POST",
@@ -74,12 +78,17 @@ function ChatWindow() {
       const response = await fetch(`${API_URL}/api/chat`, options);
       if (response.status === 401) {
         handleLogout();
+        return;
+      }
+      if (!response.ok) {
+        throw new error("Server error");
       }
       const res = await response.json();
       console.log(res);
       setReply(res.reply);
     } catch (err) {
       console.log(err);
+      setChatError("Something went wrong. Please try again.");
     }
     setloading(false);
   };
@@ -148,13 +157,14 @@ function ChatWindow() {
 
       {/* <ScaleLoader color="#fff" loading={loading}></ScaleLoader>
       <CircleLoader color="#fff" loading={loading}></CircleLoader> */}
-      {loading && (
+      {/* {loading && (
         <div className="typingDots">
           <span></span>
           <span></span>
           <span></span>
         </div>
-      )}
+      )} */}
+      {chatError && <p className="chatErrorMsg">{chatError}</p>}
       <div className="chatInput">
         <p className="info">ChatGPT can make mistakes. Check important info.</p>
         <div className="inputBox">

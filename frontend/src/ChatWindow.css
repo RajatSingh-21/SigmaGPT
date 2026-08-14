@@ -293,3 +293,10 @@ input:focus {
     z-index: 999; /* just below sidebar's z-index: 1000 */
   }
 }
+
+.chatErrorMsg {
+  color: #f87171;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}

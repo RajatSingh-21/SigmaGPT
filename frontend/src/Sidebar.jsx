@@ -96,22 +96,26 @@ function Sidebar() {
       </button>
 
       <ul className="history">
-        {allThreads?.map((thread, idx) => (
-          <li
-            key={idx}
-            onClick={() => changeThread(thread.threadId)}
-            className={thread.threadId == currThreadId ? "highlighted" : ""}
-          >
-            {thread.title}
-            <i
-              className="fa-solid fa-trash"
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteThread(thread.threadId);
-              }}
-            ></i>
-          </li>
-        ))}
+        {allThreads?.length === 0 ? (
+          <p className="emptyHistory">No conversations yet</p>
+        ) : (
+          allThreads?.map((thread, idx) => (
+            <li
+              key={idx}
+              onClick={() => changeThread(thread.threadId)}
+              className={thread.threadId == currThreadId ? "highlighted" : ""}
+            >
+              {thread.title}
+              <i
+                className="fa-solid fa-trash"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteThread(thread.threadId);
+                }}
+              ></i>
+            </li>
+          ))
+        )}
       </ul>
 
       <div className="sign">
