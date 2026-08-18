@@ -5,6 +5,9 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^9.3.1",
     "bcrypt": "^6.0.0",
     "brcypt": "^1.0.1",
     "cors": "^2.8.6",
